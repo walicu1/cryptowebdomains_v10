@@ -263,7 +263,118 @@ lightboxImages.forEach(img => {
 });
 </script>
 </section>
-        
+  
+<!--chat functionality start-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pop-up Chat</title>
+	<style>
+		.chat-popup {
+			position: fixed;
+			bottom: 20px;
+			right: 30px;
+			border: 3px solid #f1f1f1;
+			z-index: 9;
+			background-color: #fff;
+			width: 300px;
+			max-height: 400px;
+			overflow-y: scroll;
+			padding: 10px;
+			font-size: 16px;
+			display: none; /* hide chat box by default */
+		}
+
+		.chat-popup h3 {
+			margin-top: 0;
+			font-size: 20px;
+		}
+
+		.chat-popup textarea {
+			width: 100%;
+			height: 150px;
+			padding: 10px;
+			resize: none;
+		}
+
+		.open-button {
+			position: fixed;
+			bottom: 20px;
+			right: 30px;
+			width: 100px;
+			font-size: 16px;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: #4CAF50;
+			color: white;
+			z-index: 10;
+			cursor: pointer;
+		}
+
+		.open-button:hover {
+			background-color: #3e8e41;
+		}
+
+		.btn {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		.cancel {
+			background-color: #f44336;
+		}
+
+		.cancel:hover {
+			background-color: #da190b;
+		}
+
+		.close {
+			position: absolute;
+			top: 0;
+			right: 15px;
+			font-size: 25px;
+			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #f00;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+		<button class="open-button" onclick="openPopup()">Chat</button>
+			<div class="chat-popup" id="myChat">
+				<h1>Chat</h1>
+				<form method="post" action="https://wa.me/+18567330856">
+					<textarea placeholder="Type message.." name="message" required></textarea>
+					<button type="submit" class="btn">Send</button>
+					<button type="button" class="btn cancel" onclick="closePopup()">Close</button>
+				</form>
+			</div>
+		<script>
+		function openPopup() {
+			document.querySelector(".chat-popup").style.display = "block";
+		}
+
+		function closePopup() {
+			document.querySelector(".chat-popup").style.display = "none";
+		}
+	</script>
+</body>
+</html>
+
+<!--chat functionality end-->
+
 </body>
 </html>
             
